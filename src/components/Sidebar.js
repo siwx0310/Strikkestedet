@@ -1,16 +1,10 @@
-import {list} from "postcss";
+import Selector from "./Selector";
 
-
-export default function Sidebar(sidebar_brand) {
-console.log(sidebar_brand.data)
-    return (<div>
-        <div><h3>Sidebar</h3></div>
-            {sidebar_brand.data.map((brand, index) => {
-            return (
-                <span className="block" key={brand.title}>{brand.title}</span>
-            )
-            })}
-
+export default function Sidebar(props) {
+    console.log(props);
+    return (<div className="col-span-2">
+        <div><h3>Reset placeholder</h3></div>
+            <Selector data={props}/>
         </div>
 
     )

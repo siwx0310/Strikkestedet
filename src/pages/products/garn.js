@@ -6,10 +6,12 @@ import {request} from "../../../lib/datocms";
 export default function Garn( data ) {
 
     const sidebarBrand = data.data.sidebar_brand
+    const sidebarFiber = data.data.sidebar_fiber
+    const sidebarNeedles = data.data.sidebar_needles
     const content = data.data.content
     return (
         <>
-            <Sidebar data={sidebarBrand}/>
+            <Sidebar brand={sidebarBrand} fiber={sidebarFiber} needles={sidebarNeedles}/>
             <h1>{content.title}</h1>
             <p>{content.text}</p>
         </>
@@ -26,6 +28,14 @@ const GarnData = `query Garn {
     title
     brand
   } 
+  sidebar_fiber: allYarnFibers {
+    title
+    id
+  }
+  sidebar_needles: allYarnIndicativeKnittingNeedles {
+    id
+    title
+  }
 }`;
 
 export async function getStaticProps() {

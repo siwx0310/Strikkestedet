@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
        <Header/>
         <div className="bg-background">
-            <div className="max-w-screen-2xl mx-auto grid grid-cols-8 gap-4">
+            <div className="max-w-screen-2xl mx-auto grid grid-cols-6 gap-4">
                 <Component {...pageProps} />
             </div>
         </div>
