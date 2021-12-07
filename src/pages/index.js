@@ -1,29 +1,48 @@
 
 import { request } from "../../lib/datocms";
 
-export default function Home({ data }) {
-  console.log(data)
-  return <div className="">
 
-    <h1 className="">{data.content.heading}</h1>
-    <p>{data.content.text}</p>
-  </div>
+export default function Home({ data }) {
+  console.log(data.content)
+  return (
+      <>
+
+  <h1 className="text-blue-900">{data.content.heading}</h1>
+
+      </> )
 }
 
-const HOMEPAGE_QUERY = `query MyQuery {
+const HOMEPAGE_QUERY = `query HomePage {
   content: homepage {
-    id
     heading
-   
+    id
+    text {
+      ... on ImageLinkRecord {
+      __typename
+        id
+        image {
+          title
+          url
+        }
+      }
+      ... on TextblockRecord {
+      __typename
+        id
+        text
+        heading
+      }
+    }
   }
 }`;
+
 export async function getStaticProps() {
   const data = await request({
     query: HOMEPAGE_QUERY,
 
   });
   return {
-    props: { data }
+    props: { data },
+    notFound: !data?.content,
   };
 }
 
