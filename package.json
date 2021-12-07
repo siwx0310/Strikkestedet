@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^16.0.1",
+    "graphql-hooks": "^5.5.0",
     "graphql-request": "^3.7.0",
     "init": "^0.1.2",
     "next": "^12.0.4",
@@ -23,6 +24,7 @@
     "typescript": "^4.5.2"
   },
   "devDependencies": {
+    "@tsconfig/node12": "^1.0.9",
     "eslint": "7",
     "eslint-config-next": "12.0.4"
   }

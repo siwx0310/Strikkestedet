@@ -3,7 +3,7 @@ import { request } from "../../lib/datocms";
 
 
 export default function Home({ data }) {
-  console.log(data.content)
+  console.log(data)
   return (
       <>
 
