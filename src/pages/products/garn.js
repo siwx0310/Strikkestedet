@@ -8,12 +8,29 @@ export default function Garn( data ) {
     const sidebarBrand = data.data.sidebar_brand
     const sidebarFiber = data.data.sidebar_fiber
     const sidebarNeedles = data.data.sidebar_needles
+    const products = data.data.products
     const content = data.data.content
+    console.log(products)
     return (
         <>
             <Sidebar brand={sidebarBrand} fiber={sidebarFiber} needles={sidebarNeedles}/>
+            <div className="col-start-3 col-span-4">
+            <div className="">
             <h1>{content.title}</h1>
             <p>{content.text}</p>
+            </div>
+            <section className=" grid grid-cols-4 gap-4">
+            {products? products.map((product) => {
+                return (
+                    <article key={product.id}>
+                        <h2>{product.title}</h2>
+                    </article>
+                )
+            }) :null}
+            </section>
+            </div>
+
+
         </>
     )
 }
@@ -35,6 +52,11 @@ const GarnData = `query Garn {
   sidebar_needles: allYarnIndicativeKnittingNeedles {
     id
     title
+  }
+  products:  allYarnProducts {
+    brand
+    title
+    id
   }
 }`;
 
