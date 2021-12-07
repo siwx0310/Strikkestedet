@@ -4,11 +4,12 @@ import {request} from "../../../lib/datocms";
 
 
 export default function Garn( data ) {
-    console.log(data.data.content);
+
+    const sidebarBrand = data.data.sidebar_brand
     const content = data.data.content
     return (
         <>
-            <Sidebar/>
+            <Sidebar data={sidebarBrand}/>
             <h1>{content.title}</h1>
             <p>{content.text}</p>
         </>
@@ -21,6 +22,10 @@ const GarnData = `query Garn {
     title
     id
   }
+  sidebar_brand: allYarnBrands {
+    title
+    brand
+  } 
 }`;
 
 export async function getStaticProps() {
