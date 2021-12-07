@@ -25,11 +25,20 @@ module.exports = {
         60: 'rgba(255,255,255,.6)',
         70: 'rgba(255,255,255,.7)',
       },
-    } ,
+      btn:{
+        DEFAULT: 'rgba(50,47,44,.9)',
+      },
+    },
+    minHeight: {
+      80: '80vh'
+    },
     fontFamily: {
       sans: ["Lato", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
       serif: ["Bodoni Moda", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"]
     },
+    // fontSize: {
+    //   h1: '2.8rem' 
+    // },
     extend: {}
   },
   variants: {
