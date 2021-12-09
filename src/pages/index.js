@@ -70,11 +70,11 @@ export default function Home({ data }) {
             <h3 className="font-sans text-xl lg:text-2xl font-bold mb-4">Filtrer mellem udvalgte produkter</h3>
             <div className="flex items-center w-full mb-2">
               <input type="radio" id="yarnRadio" name="selectedProducts" value="yarn" checked></input>
-              <label htmlFor="yarnRadio" className="pl-4 text-base">Garn</label>
+              <label htmlFor="yarnRadio" className="pl-4 text-base cursor-pointer">Garn</label>
             </div>
             <div className="flex items-center w-full">
               <input type="radio" id="knittingPatternsRadio" name="selectedProducts" value="knittingPatterns"></input>
-              <label htmlFor="knittingPatternsRadio" className="pl-4 text-base">Strikkeopskrifter</label>
+              <label htmlFor="knittingPatternsRadio" className="pl-4 text-base cursor-pointer">Strikkeopskrifter</label>
             </div>
           </div>
           <div className="col-span-1">

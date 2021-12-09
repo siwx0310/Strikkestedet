@@ -1,5 +1,6 @@
 import '/src/styles/globals.css'
 import "tailwindcss/tailwind.css"
+import '/src/styles/app.css'
 import Footer from "../Globals/Footer";
 import Header from "../Globals/Header";
 
