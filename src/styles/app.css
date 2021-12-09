@@ -1,3 +1,7 @@
+body {
+    background-color: #F8f8f8;
+}
+
 input[type="radio"] {
     appearance: none;
     -moz-appearance: none;
