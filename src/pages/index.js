@@ -28,17 +28,19 @@ export default function Home({ data }) {
             <Button href="/products/yarn">Garn</Button>
           </div>
         </section>
+
         <section className="grid grid-cols-6 gap-4">
           <article className="col-span-6 lg:col-span-3 lg:col-start-2 p-16">
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">{data.content.text[2].heading}</h2>
-            <p>{data.content.text[2].text}</p>
+            <p className="text-black-60">{data.content.text[2].text}</p>
           </article>
         </section>
+
         <section className="grid grid-cols-6 md:gap-4">
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8 flex flex-wrap content-center">
             {/* TODO: Use real content here */}
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">Tilmeld nyhedsbrev</h2>
-            <p className="mb-16">{data.content.text[2].text.slice(0, 99)}</p>
+            <p className="text-black-60 mb-16">{data.content.text[2].text.slice(0, 99)}</p>
             <form className="w-full" onSubmit={handleSubmit}>
               <label htmlFor="newsletterEmail" className="block">Indtast din e-mail</label>
               <input type="email" id="newsletterEmail" autoComplete="email" className="block bg-gray-input mb-16 w-full p-2"/>
@@ -49,43 +51,47 @@ export default function Home({ data }) {
             <Button href="#">Lær at strikke</Button>
           </div>
         </section>
+
         <section className="grid grid-cols-6 gap-4">
         <article className="col-span-6 lg:col-span-3 lg:col-start-3 p-16">
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">{data.content.text[4].heading}</h2>
-            <p>{data.content.text[4].text}</p>
+            <p className="text-black-60">{data.content.text[4].text}</p>
           </article>
         </section>
+
         <section className="grid grid-cols-6 md:gap-4">
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8 flex flex-wrap content-center">
             {/* TODO: Use real content here */}
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">Udvalgte produkter</h2>
-            <p>{data.content.text[2].text.slice(0, 99)}</p>
-            <div>
+            <p className="text-black-60 mb-4">{data.content.text[2].text.slice(0, 99)}</p>
+            <h3 className="font-sans text-xl lg:text-2xl font-bold mb-4">Filtrer mellem udvalgte produkter</h3>
+            <div className="flex items-center w-full mb-2">
               <input type="radio" id="yarnRadio" name="selectedProducts" value="yarn" checked></input>
-              <label htmlFor="yarnRadio">Garn</label>
+              <label htmlFor="yarnRadio" className="pl-4 text-base">Garn</label>
             </div>
-            <div>
+            <div className="flex items-center w-full">
               <input type="radio" id="knittingPatternsRadio" name="selectedProducts" value="knittingPatterns"></input>
-              <label htmlFor="knittingPatternsRadio">Strikkeopskrifter</label>
+              <label htmlFor="knittingPatternsRadio" className="pl-4 text-base">Strikkeopskrifter</label>
             </div>
           </div>
           <div className="col-span-1">
 
           </div>
         </section>
+
         <section className="grid grid-cols-6 gap-4">
           <h2 className="font-serif text-3xl lg:text-5xl m-16 mb-4 md:m-8 md:mb-4 col-span-6">Kunderne siger</h2>
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
             <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p>{data.content.text[2].text.slice(0, 99)}</p>
+            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
           </div>
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
             <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p>{data.content.text[2].text.slice(0, 99)}</p>
+            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
           </div>
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
             <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p>{data.content.text[2].text.slice(0, 99)}</p>
+            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
           </div>
         </section>
 
