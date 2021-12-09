@@ -2,13 +2,12 @@ import Link from 'next/link';
 
 export default function Button(props){
     const classList = (props.fullWidth ? "w-full " : "w-60 lg:w-80 ") + "bg-btn transition hover:bg-black font-sans text-xl lg:text-2xl text-white min-w-40 py-4";
-    console.log(props)
     return (
         props.href ? 
         <Link href={props.href}>
             <button type={props.type} className={classList}>{props.children}</button>
         </Link>
         :
-        <button type={props.type} className={classList} {...props.type == "submit" ? onsubmit=(e) => e.preventDefault() : ""}>{props.children}</button>
+        <button type={props.type} className={classList}>{props.children}</button>
     )
 }
