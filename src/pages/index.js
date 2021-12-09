@@ -43,7 +43,7 @@ export default function Home({ data }) {
             <p className="text-black-60 mb-16">{data.content.text[2].text.slice(0, 99)}</p>
             <form className="w-full" onSubmit={handleSubmit}>
               <div className="w-full mb-16">
-                <label htmlFor="newsletterEmail" className="block">Indtast din e-mail</label>
+                <label htmlFor="newsletterEmail" className="block mb-2 text-lg">Indtast din e-mail</label>
                 <input type="email" id="newsletterEmail" autoComplete="email" className="block w-full p-2 bg-gray-input outline-none border border-solid border-gray-input transition focus:bg-white focus:outline-none focus:border-black" required/>
                 <span className="text-black-40 text-sm mb-16">Vi benytter kun din e-mail til at sende dig gode tilbud og nyheder.</span>
               </div>
