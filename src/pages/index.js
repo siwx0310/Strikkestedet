@@ -13,6 +13,11 @@ export default function Home({ data }) {
   const knitBgImage = {
     backgroundImage: "url('" + data.content.text[3].image.url + "');"
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
       <>
         <section className="grid grid-cols-6 gap-4">
@@ -34,7 +39,7 @@ export default function Home({ data }) {
             {/* TODO: Use real content here */}
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">Tilmeld nyhedsbrev</h2>
             <p className="mb-16">{data.content.text[2].text.slice(0, 99)}</p>
-            <form className="w-full">
+            <form className="w-full" onSubmit={handleSubmit}>
               <label htmlFor="newsletterEmail" className="block">Indtast din e-mail</label>
               <input type="email" id="newsletterEmail" autoComplete="email" className="block bg-gray-input mb-16 w-full p-2"/>
               <Button type="submit" href={false} fullWidth={true}>Tilmeld</Button>
