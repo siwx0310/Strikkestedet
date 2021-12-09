@@ -5,10 +5,10 @@ export default function Home({ data }) {
   console.log(data.content)
 
   const patternsBgImage = {
-    backgroundImage: "url('" + data.content.text[1].image.url + "');"
+    backgroundImage: "url('" + data.content.text[0].image.url + "');"
   };
   const yarnBgImage = {
-    backgroundImage: "url('" + data.content.text[0].image.url + "');"
+    backgroundImage: "url('" + data.content.text[1].image.url + "');"
   };
   const knitBgImage = {
     backgroundImage: "url('" + data.content.text[3].image.url + "');"
@@ -22,17 +22,17 @@ export default function Home({ data }) {
       <>
         <section className="grid grid-cols-6 gap-4">
           <div className="col-span-6 md:col-span-4 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center" style={patternsBgImage}>
-            <Button href="/products/knittingpatterns" fullWidth={false}>Opskrifter</Button>       
+            <Button href="/products/knittingpatterns" fullWidth={false}>{data.content.text[0].cta.title}</Button>       
           </div>
           <div className="col-span-6 md:col-span-2 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center" style={yarnBgImage}>
-            <Button href="/products/yarn">Garn</Button>
+            <Button href="/products/yarn">{data.content.text[1].cta.title}</Button>
           </div>
         </section>
 
         <section className="grid grid-cols-6 gap-4">
           <article className="col-span-6 lg:col-span-3 lg:col-start-2 p-16">
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">{data.content.text[2].heading}</h2>
-            <p className="text-black-60">{data.content.text[2].text}</p>
+            <p className="text-black-60">{data.content.text[3].text}</p>
           </article>
         </section>
 
@@ -51,7 +51,7 @@ export default function Home({ data }) {
             </form>
           </div>
           <div className="col-span-6 md:col-span-4 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center" style={knitBgImage}>
-            <Button href="#">Lær at strikke</Button>
+            <Button href="#">{data.content.text[3].cta.title}</Button>
           </div>
         </section>
 
@@ -112,6 +112,16 @@ const HOMEPAGE_QUERY = `query HomePage {
         image {
           title
           url
+        }
+        cta {
+          ... on ProductPageRecord {
+            id
+            title
+          }
+          ... on LearnPageRecord {
+            id
+            title
+          }
         }
       }
       ... on TextblockRecord {
