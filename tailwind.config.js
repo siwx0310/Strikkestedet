@@ -27,6 +27,7 @@ module.exports = {
       },
       btn:{
         DEFAULT: 'rgba(50,47,44,.9)',
+        hover: 'rgba(50,47,44,1)'
       },
     },
     minHeight: {
