@@ -18,6 +18,14 @@ export default function Home({ data }) {
     e.preventDefault();
   }
 
+  function getStarsArray(num) {
+    let stars = [];
+    for (let i = 1; i <= num; i++ ) {
+      stars.push(i);
+    }
+    return stars;
+  }
+
   return (
       <>
         <section className="grid grid-cols-6 gap-4">
@@ -32,7 +40,7 @@ export default function Home({ data }) {
         <section className="grid grid-cols-6 gap-4">
           <article className="col-span-6 lg:col-span-3 lg:col-start-2 p-16">
             <h2 className="font-serif text-3xl lg:text-5xl mb-4">{data.content.text[2].heading}</h2>
-            <p className="text-black-60">{data.content.text[3].text}</p>
+            <p className="text-black-60">{data.content.text[2].text}</p>
           </article>
         </section>
 
@@ -84,18 +92,24 @@ export default function Home({ data }) {
 
         <section className="grid grid-cols-6 gap-4 md:mt-8">
           <h2 className="font-serif text-3xl lg:text-5xl m-16 mb-4 md:m-8 md:mb-4 col-span-6">Kunderne siger</h2>
-          <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
-            <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
-          </div>
-          <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
-            <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
-          </div>
-          <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
-            <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
-            <p className="text-black-60">{data.content.text[2].text.slice(0, 99)}</p>
-          </div>
+          {data.content.text.map(block => {
+            if (block.__typename.toLowerCase() === "reviewblockrecord") {
+              return (
+                <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
+                  <h3 className="font-serif text-xl lg:text-3xl mb-4">{block.customername}</h3>
+                  <p className="text-black-60 mb-8">{block.customerreview}</p>
+                  <h4 className="font-sans text-lg font-bold">Trustpilot</h4>
+                  {
+                    getStarsArray(block.trustpilotstars).map(star => {
+                      return (
+                        <img src="./review_star.svg" className="inline-block mr-2" />
+                      )
+                    })
+                  }
+                </div>
+              );
+            }
+          })}
         </section>
 
       </> )
@@ -129,6 +143,13 @@ const HOMEPAGE_QUERY = `query HomePage {
         id
         text
         heading
+      }
+      ... on ReviewblockRecord {
+      __typename
+        id
+        customername
+        customerreview
+        trustpilotstars
       }
     }
   }
