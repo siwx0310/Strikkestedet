@@ -82,7 +82,7 @@ export default function Home({ data }) {
           </div>
         </section>
 
-        <section className="grid grid-cols-6 gap-4">
+        <section className="grid grid-cols-6 gap-4 md:mt-8">
           <h2 className="font-serif text-3xl lg:text-5xl m-16 mb-4 md:m-8 md:mb-4 col-span-6">Kunderne siger</h2>
           <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8">
             <h3 className="font-serif text-xl lg:text-3xl mb-4">Navn</h3>
