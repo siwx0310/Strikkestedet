@@ -95,7 +95,7 @@ export default function Home({ data }) {
           {data.content.text.map(block => {
             if (block.__typename.toLowerCase() === "reviewblockrecord") {
               return (
-                <div className="col-span-6 md:col-span-2 bg-white p-16 md:p-8 flex flex-wrap ">
+                <div key={block.id} className="col-span-6 md:col-span-2 bg-white p-16 md:p-8 flex flex-wrap ">
                   <div>
                     <h3 className="font-serif text-xl lg:text-3xl mb-4">{block.customername}</h3>
                     <p className="text-black-60 mb-8">{block.customerreview}</p>
