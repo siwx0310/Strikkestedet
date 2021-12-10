@@ -33,7 +33,7 @@ export default function Home({ data }) {
           className="col-span-6 md:col-span-4 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center"
           style={patternsBgImage}
         >
-          <Button href="/products/knittingpatterns" fullWidth={false}>
+          <Button href="/products/strikkeopskrifter" fullWidth={false}>
             {data.content.text[0].cta.title}
           </Button>
         </div>
@@ -41,7 +41,7 @@ export default function Home({ data }) {
           className="col-span-6 md:col-span-2 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center"
           style={yarnBgImage}
         >
-          <Button href="/products/yarn">
+          <Button href="/products/garn">
             {data.content.text[1].cta.title}
           </Button>
         </div>
@@ -91,7 +91,7 @@ export default function Home({ data }) {
           className="col-span-6 md:col-span-4 bg-cover bg-center min-h-80 flex flex-wrap items-center justify-center"
           style={knitBgImage}
         >
-          <Button href="#">{data.content.text[3].cta.title}</Button>
+          <Button href="/learn/laeratstrikke">{data.content.text[3].cta.title}</Button>
         </div>
       </section>
 
