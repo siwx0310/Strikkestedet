@@ -122,7 +122,7 @@ export default function Home({ data }) {
               id="yarnRadio"
               name="selectedProducts"
               value="yarn"
-              checked
+              defaultChecked
             ></input>
             <label
               htmlFor="yarnRadio"
@@ -171,6 +171,7 @@ export default function Home({ data }) {
                   {getStarsArray(block.trustpilotstars).map((star) => {
                     return (
                       <img
+                        key={block.id + '-' + star.toString()}
                         src="./review_star.svg"
                         className="inline-block mr-2"
                       />
