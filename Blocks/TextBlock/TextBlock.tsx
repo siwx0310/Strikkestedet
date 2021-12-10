@@ -1,5 +1,1 @@
-
-
-export default function TextBlock(){
-
-}
+export default function TextBlock() {}

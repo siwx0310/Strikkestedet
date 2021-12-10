@@ -1,14 +1,12 @@
-import {request} from "../../../lib/datocms";
+import { request } from "../../../lib/datocms";
 
-
-export default function Strikkeopskrifter( data ) {
-    console.log(data.data.content);
-    return (
-        <>
-        <h1></h1>
-            <p></p>
-        </>
-    )
+export default function Strikkeopskrifter(data) {
+  return (
+    <>
+      <h1></h1>
+      <p></p>
+    </>
+  );
 }
 const StrikkeopskriftSide = `query Strikkeopskrifter {
   content: productPage(filter: {slug: {eq: "strikkeopskrifter"}}) {
@@ -20,12 +18,11 @@ const StrikkeopskriftSide = `query Strikkeopskrifter {
 }`;
 
 export async function getStaticProps() {
-    const data = await request({
-        query: StrikkeopskriftSide,
-
-    });
-    return {
-        props: { data },
-        notFound: !data?.content,
-    };
+  const data = await request({
+    query: StrikkeopskriftSide,
+  });
+  return {
+    props: { data },
+    notFound: !data?.content,
+  };
 }
