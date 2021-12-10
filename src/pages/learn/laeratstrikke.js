@@ -1,6 +1,8 @@
 import { request } from "../../../lib/datocms";
 
 export default function LearnToKnit(data) {
+    const blocksArray = data.data.content.blocks;
+
     return (
         <>
             <section className="grid grid-cols-6 gap-4">
@@ -10,7 +12,7 @@ export default function LearnToKnit(data) {
                 </article>
             </section>
 
-            {data.data.content.blocks.map(block => {return <VideoSection key={block.id} {...block}></VideoSection>})}
+            {blocksArray.map(block => {return <VideoSection key={block.id} index={blocksArray.findIndex(item => item.id === block.id)} {...block}></VideoSection>})}
         </>
     )
 }
@@ -20,7 +22,7 @@ function VideoSection(props) {
         <>
         <section className="w-full mb-4">
             <article className="grid grid-cols-6 gap-4 flex flex-wrap">
-                <video type="video/mp4" loading="lazy" className={((props.assetnumber % 2 == 0) ? "lg:order-2 " : "") + "col-span-6 lg:col-span-3"} src={props.mediaasset.url} controls>
+                <video type="video/mp4" loading="lazy" className={((props.index % 2 > 0) ? "lg:order-2 " : "") + "col-span-6 lg:col-span-3"} src={props.mediaasset.url} controls>
                     Your browser does not support the video tag.
                 </video>
                 <div className={"col-span-6 lg:col-span-3 p-16 self-center "}>
