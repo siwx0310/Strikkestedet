@@ -10,11 +10,7 @@ export default function LearnToKnit(data) {
                 </article>
             </section>
 
-            {data.data.content.blocks.map(block => {
-                return (
-                    <VideoSection key={block.id} {...block}></VideoSection>
-                )
-            })}
+            {data.data.content.blocks.map(block => {return <VideoSection key={block.id} {...block}></VideoSection>})}
         </>
     )
 }
